@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "savvy-arbor-433608-f0",
+  "private_key_id": "ba84f63d84ab206962979ce5b1817c86e0a36b16",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCtzke5VewvDfLS\nhygQBYUSn3Hytg3LM2FlYLz+qK6hi6bE0j1IQQbI+myvBo6JYdlfoMtPWwB2liV/\nIFZhhiTe0Wpl4yrJphXsmqU0anutsX8MjAYZ+U7sSgtSIztIlVVMj00ZYl5kQkUe\nPeEr5Fhq4yU2CSvvMGtbqW8VONACwFSr7p0XAQLV49LPYpUnoU/DW2g00wxckDPx\nXMTKA+ZVslSHtCn7TqVTT/uq7q3jQZzwhP/iOMqMyy8leVbNxGwUjg25uw59HUyS\nkgjru4HTtpJ8fkmbTwshOSqZ13PaguDz5pdpLtPfSsPemlOXBcdVYsgX/qxMS0AH\nGzkRS7KHAgMBAAECggEAOx5zXyNO1yKTefDnO6vk+9SoWbp7LqcndehV4PlXjTOH\nYmNw3Obhe/NSjKZaTXivC8wR28hEfBHOZ1OEjl+movPwkP+YSkboJjbkAtRFhWte\nn9HxMVyP7+evuhypyaKiBQypWP0QxmGUSRkbQmbFfHYO7jZob0+09NTJKBrPBl/8\n6Vufs8VI05rl/RUDYOvneueXiz5zzZslEdZc9vNIWkf5gx9RUpKNuX74AG4pIFon\ntGYoYu0Eb3bNJKYuOFVy5fKBhVEMPbS2sTnENkX4YsZ1FqXteZiC87kN0ypuLonv\nB2wxMnCYqDfpYInsu0Hh+FA7IwPF507qx8PxAUy/QQKBgQDtjp2i7E1/59gTp1ng\nF7xIrl7rxMVLK8dASDaiVa2na+3gXM9qwrNkXik3Mg53pjBFJWnE7LtffyOFBIwj\nPTzcIrJ7jD4sepFOotjTD796zYwkDdEk4l3cMWED1IVpfZtoEzUnzC5pZzZWng5l\ntRmj5NMhw303ctU1Q33EXWv+OQKBgQC7TJ++r9uPgYx8gPoj7cXJZ2fbFCjGnD2k\n0t16XEODEFmEh/MqadncW5SJZ9rRy0sJoJgqo6mGGp4aWyKLu3u4PMNG79vEq9rn\nrmXGR+iQ6iiA7obgpq7MxPx4B1PFQ68jDdteQ+ld086WCbUStZw99yCs3JR2mwZk\n57w5VuE2vwKBgBSCTYW1VPOH9pWrywyXv/+eXj+Im2fj/a3FDkJxly5vGPhXyuhy\nqr4tiu1i+vDFfkFZ+4muznZuKYjgXaDlNo3iyPn1n6CDbGwXjxSZtXRKrqCmOLow\neN37vV5xSJtU5sfTcLFg5VjgOka8Go4ZVn9Z0AiIMhVJarLQgtkjH6GxAoGAb4wf\n61oiwiHegFv0HafDTsK1+KTV8AsnL12iJ/iBALKhDaxF5vGpnXIxUXA3wxB2/SHW\n3jYghUye8oVqWpvq//u4NSwuz7+mHKsh0+gJmxzJyJfGXk8G9c8vqXB7tJUt3gun\npUl+17GIbJUVcTIV/lWK8UhhZw3GzhuxXtjeQlMCgYAnpum4u542UTqhuDgxBIIK\ny3Xiy3Lw52bhUBJuxTaTvV2wxE40Swozvx3LvlhpWueAiUJ8W3zNrGn1xc5ebiZ6\nB9oUt4I6E4OMNn8lNlqGYE0D4zlm0p2SHLRiyokhSPeG8qy89esV3CXXQhup3DAN\nk5Fab2RrSkRndnuo/2+CzQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "nilmproject@savvy-arbor-433608-f0.iam.gserviceaccount.com",
+  "client_id": "108446222582090454849",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nilmproject%40savvy-arbor-433608-f0.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
