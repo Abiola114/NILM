@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Socket</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #BFCCB5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #00425A;
+            font-size: xx-large;
+            font-weight: 700;
+            padding: 30px 20px;
+        }
+        hr {
+            margin-bottom: 35px;
+            border: none;
+            border-top: 3px solid grey;
+        }
+        .appliance-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .appliance {
+            background-color: #E8F0F2;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+        .appliance img {
+            width: 50px;
+            height: 50px;
+        }
+        .appliance-status {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .energy-display {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Non-Intrusive Load Monitoring System</h1>
+        <hr>
+
+        <!-- Appliance Status Display -->
+        <div class="appliance-container">
+            <div class="appliance">
+                <img src="https://cdn-icons-png.flaticon.com/512/595/595067.png" alt="Light Bulb Icon">
+                <h2 style="color: #0B2447;">Light Bulb</h2>
+                <div id="lightbulb_status" class="appliance-status" style="color: red;">OFF</div>
+                <div id="lightbulb_energy" class="energy-display">Energy: 0 kWh</div>
+                <div id="lightbulb_cost" class="energy-display">Your Light bulb ON has cost you: ₦0.00 today</div>
+                <div id="lightbulb_last_updated" class="energy-display">Last Updated: Never</div>
+            </div>
+            <div class="appliance">
+                <img src="https://cdn-icons-png.flaticon.com/512/4341/4341023.png" alt="Fan Icon">
+                <h2 style="color: #0B2447;">Fan</h2>
+                <div id="fan_status" class="appliance-status" style="color: red;">OFF</div>
+                <div id="fan_energy" class="energy-display">Energy: 0 kWh</div>
+                <div id="fan_cost" class="energy-display">Your Fan ON has cost you: ₦0.00 today</div>
+                <div id="fan_last_updated" class="energy-display">Last Updated: Never</div>
+            </div>
+            <div class="appliance">
+                <img src="https://cdn-icons-png.flaticon.com/512/1089/1089816.png" alt="Pressing Iron Icon">
+                <h2 style="color: #0B2447;">Pressing Iron</h2>
+                <div id="iron_status" class="appliance-status" style="color: red;">OFF</div>
+                <div id="iron_energy" class="energy-display">Energy: 0 kWh</div>
+                <div id="iron_cost" class="energy-display">Your Iron ON has cost you: ₦0.00 today</div>
+                <div id="iron_last_updated" class="energy-display">Last Updated: Never</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var socket = io.connect();
+
+            // Update appliance status and energy consumption based on predictions
+            socket.on('updateSensorData', function(data) {
+                updateApplianceStatus(data);
+            });
+
+            function updateApplianceStatus(data) {
+                // Update Light Bulb
+                if (data.lightbulb === 1) {
+                    document.getElementById('lightbulb_status').innerText = "ON";
+                    document.getElementById('lightbulb_status').style.color = "green";
+                    document.getElementById('lightbulb_energy').innerText = "Energy: " + data.lightbulb_energy.toFixed(6) + " kWh";
+                    document.getElementById('lightbulb_cost').innerText = "Your Light bulb ON has cost you: ₦" + data.lightbulb_cost.toFixed(6) + " today";
+                } else {
+                    document.getElementById('lightbulb_status').innerText = "OFF";
+                    document.getElementById('lightbulb_status').style.color = "red";
+                }
+                document.getElementById('lightbulb_last_updated').innerText = "Last Updated: " + (data.last_updated_lightbulb || 'Never');
+
+                // Update Fan
+                if (data.fan === 1) {
+                    document.getElementById('fan_status').innerText = "ON";
+                    document.getElementById('fan_status').style.color = "green";
+                    document.getElementById('fan_energy').innerText = "Energy: " + data.fan_energy.toFixed(6) + " kWh";
+                    document.getElementById('fan_cost').innerText = "Your Fan ON has cost you: ₦" + data.fan_cost.toFixed(6) + " today";
+                } else {
+                    document.getElementById('fan_status').innerText = "OFF";
+                    document.getElementById('fan_status').style.color = "red";
+                }
+                document.getElementById('fan_last_updated').innerText = "Last Updated: " + (data.last_updated_fan || 'Never');
+
+                // Update Pressing Iron
+                if (data.iron === 1) {
+                    document.getElementById('iron_status').innerText = "ON";
+                    document.getElementById('iron_status').style.color = "green";
+                    document.getElementById('iron_energy').innerText = "Energy: " + data.iron_energy.toFixed(6) + " kWh";
+                    document.getElementById('iron_cost').innerText = "Your Iron ON has cost you: ₦" + data.iron_cost.toFixed(6) + " today";
+                } else {
+                    document.getElementById('iron_status').innerText = "OFF";
+                    document.getElementById('iron_status').style.color = "red";
+                }
+                document.getElementById('iron_last_updated').innerText = "Last Updated: " + (data.last_updated_iron || 'Never');
+            }
+        });
+    </script>
+</body>
+</html>
